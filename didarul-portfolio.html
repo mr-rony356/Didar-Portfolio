@@ -1,0 +1,1701 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Md Didarul Islam — Graphic Designer & Visual Creator</title>
+    <meta
+      name="description"
+      content="Graphic Designer, Video Editor & Social Media Manager based in Bangladesh. 3+ years of real-world creative experience."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ── RESET & BASE ── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      body {
+        background: #111118;
+        color: #fafafa;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        overflow-x: hidden;
+        cursor: none;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      button,
+      input,
+      textarea,
+      select {
+        font-family: inherit;
+      }
+
+      /* ── CURSOR ── */
+      #cursor-dot,
+      #cursor-ring {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s;
+      }
+      #cursor-dot {
+        width: 6px;
+        height: 6px;
+        background: #FF5722;
+      }
+      #cursor-ring {
+        width: 32px;
+        height: 32px;
+        border: 1.5px solid rgba(255, 87, 34, 0.5);
+        transition:
+          width 0.2s,
+          height 0.2s,
+          border-color 0.2s;
+      }
+      body.cursor-hover #cursor-ring {
+        width: 48px;
+        height: 48px;
+        border-color: rgba(255, 87, 34, 0.8);
+      }
+      @media (hover: none) {
+        #cursor-dot,
+        #cursor-ring {
+          display: none;
+        }
+        body {
+          cursor: auto;
+        }
+      }
+
+      /* ── TYPOGRAPHY ── */
+      .display {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        line-height: 1.04;
+      }
+      .mono {
+        font-family: "Space Mono", monospace;
+      }
+
+      /* ── GRID OVERLAY ── */
+      .grid-bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+          );
+        background-size: 60px 60px;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 28px 48px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .nav-logo,
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+      .nav-logo span {
+        color: #FF5722;
+      }
+      .nav-mobile-toggle {
+        display: flex;
+        background: rgba(34, 36, 42, 0.92);
+        border: none;
+        cursor: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 18px 20px;
+        border-radius: 3px;
+        backdrop-filter: blur(4px);
+        transition: background 0.2s;
+      }
+      .nav-mobile-toggle:hover {
+        background: #FF5722;
+      }
+      .nav-mobile-toggle span {
+        display: block;
+        width: 26px;
+        height: 2px;
+        background: #fafafa;
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background: #111118;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        font-family: "Playfair Display", serif;
+        font-weight: 500;
+        font-size: clamp(40px, 8vw, 60px);
+        letter-spacing: -0.01em;
+        color: #fafafa;
+        transition:
+          color 0.2s,
+          transform 0.2s;
+      }
+      .mobile-menu a:hover {
+        transform: translateX(6px);
+      }
+      .mobile-menu a:hover {
+        color: #FF5722;
+      }
+      .mobile-close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        background: none;
+        border: none;
+        color: #fafafa;
+        font-size: 28px;
+        cursor: none;
+      }
+
+      /* ── RED STRIPE ── */
+      .red-stripe {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #FF5722 40%, transparent);
+      }
+
+      /* ── SECTIONS ── */
+      section {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ── HERO ── */
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 48px;
+        overflow: hidden;
+        background:
+          #23262c
+          url("./bg.jpg")
+            center / cover no-repeat;
+      }
+      /* swap the image URL above for Didarul's own hero photo */
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(17, 17, 24, 0.55) 0%,
+          rgba(17, 17, 24, 0.35) 45%,
+          rgba(17, 17, 24, 0.6) 100%
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 940px;
+      }
+      .hero-greeting {
+        font-family: "Playfair Display", serif;
+        font-weight: 500;
+        font-size: clamp(54px, 10vw, 140px);
+        line-height: 1.02;
+        color: #fff;
+        margin-bottom: 26px;
+        text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+      }
+      .hero-greeting em {
+        color: #FF5722;
+        font-style: normal;
+      }
+      .hero-intro {
+        font-family: "Space Mono", monospace;
+        font-size: clamp(13px, 1.6vw, 18px);
+        letter-spacing: 0.02em;
+        color: rgba(255, 255, 255, 0.92);
+        max-width: 640px;
+        margin: 0 auto 44px;
+        line-height: 1.6;
+      }
+      .hero-more-btn {
+        display: inline-block;
+        background: #FF5722;
+        color: #fff;
+        font-family: "Space Mono", monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 19px 44px;
+        cursor: none;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+      }
+      .hero-more-btn:hover {
+        background: #ff7043;
+        transform: translateY(-2px);
+      }
+      .hero-bottom {
+        position: absolute;
+        z-index: 1;
+        left: 48px;
+        right: 48px;
+        bottom: 36px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        text-align: left;
+      }
+      .hero-contact {
+        font-family: "Space Mono", monospace;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .hero-contact-label {
+        color: #fff;
+      }
+      .hero-contact-email {
+        display: block;
+        color: #FF5722;
+        transition: color 0.2s;
+      }
+      .hero-contact-email:hover {
+        color: #ff8a65;
+      }
+      .hero-contact-phone {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .hero-socials {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .hero-socials a {
+        color: #fff;
+        display: flex;
+        transition:
+          color 0.2s,
+          transform 0.2s;
+      }
+      .hero-socials a:hover {
+        color: #FF5722;
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #FF5722;
+        color: #fff;
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 16px 32px;
+        border: none;
+        cursor: none;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        font-weight: 700;
+      }
+      .btn-primary:hover {
+        background: #ff7043;
+        transform: translateY(-1px);
+      }
+
+      /* ── TICKER ── */
+      .ticker-wrap {
+        background: #FF5722;
+        overflow: hidden;
+        padding: 14px 0;
+        border-top: none;
+        border-bottom: none;
+      }
+      .ticker-inner {
+        display: flex;
+        white-space: nowrap;
+        animation: ticker 28s linear infinite;
+      }
+      .ticker-inner:hover {
+        animation-play-state: paused;
+      }
+      .ticker-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 28px;
+        padding: 0 28px;
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-weight: 500;
+        font-size: 24px;
+        letter-spacing: 0;
+        color: #111118;
+      }
+      .ticker-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(17, 17, 24, 0.35);
+        flex-shrink: 0;
+      }
+      @keyframes ticker {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── ABOUT ── */
+      #about {
+        padding: 120px 48px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .section-label {
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #FF5722;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .section-label::before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: #FF5722;
+      }
+      .about-photo-wrap {
+        position: relative;
+        aspect-ratio: 4/5;
+        max-width: 380px;
+      }
+      .about-photo-frame {
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+        position: relative;
+        overflow: hidden;
+      }
+      .about-photo-frame::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: #FF5722;
+      }
+      .photo-placeholder-icon {
+        width: 64px;
+        height: 64px;
+        border: 1.5px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.2);
+        font-size: 28px;
+      }
+      .photo-placeholder-text {
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .about-corner {
+        position: absolute;
+        font-family: "Playfair Display", serif;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.12);
+        background: #111118;
+        padding: 4px 10px;
+      }
+      .about-corner.tl {
+        top: 12px;
+        left: 12px;
+      }
+      .about-corner.br {
+        bottom: 12px;
+        right: 12px;
+      }
+      .about-heading {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: clamp(44px, 6vw, 76px);
+        line-height: 1.04;
+        letter-spacing: -0.01em;
+        color: #fafafa;
+        margin-bottom: 28px;
+      }
+      .about-heading em {
+        color: #FF5722;
+        font-style: italic;
+      }
+      .about-bio {
+        font-size: 15px;
+        font-weight: 300;
+        color: rgba(250, 250, 250, 0.6);
+        line-height: 1.8;
+        margin-bottom: 32px;
+      }
+      .about-bio strong {
+        color: #fafafa;
+        font-weight: 500;
+      }
+      .about-stats {
+        display: flex;
+        gap: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 32px;
+        margin-top: 8px;
+      }
+      .astat {
+        flex: 1;
+        padding-right: 28px;
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+        margin-right: 28px;
+      }
+      .astat:last-child {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+      }
+      .astat-num {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 1;
+        color: #FF5722;
+      }
+      .astat-label {
+        font-family: "Space Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(250, 250, 250, 0.35);
+        margin-top: 6px;
+      }
+
+      /* ── SERVICES ── */
+      #services {
+        padding: 80px 48px 120px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .services-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 64px;
+        gap: 24px;
+      }
+      .services-heading {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: clamp(44px, 7vw, 84px);
+        line-height: 1.03;
+        letter-spacing: -0.01em;
+        color: #fafafa;
+        max-width: 500px;
+      }
+      .services-sub {
+        font-size: 13px;
+        font-weight: 300;
+        color: rgba(250, 250, 250, 0.4);
+        max-width: 260px;
+        line-height: 1.7;
+      }
+      .service-row {
+        display: grid;
+        grid-template-columns: 48px 1fr auto;
+        align-items: center;
+        gap: 32px;
+        padding: 28px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        position: relative;
+        cursor: none;
+        overflow: hidden;
+        transition: border-color 0.3s;
+      }
+      .service-row::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        left: -100%;
+        background: rgba(255, 87, 34, 0.06);
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 0;
+      }
+      .service-row:hover::before {
+        left: 0;
+      }
+      .service-row:hover {
+        border-color: rgba(255, 87, 34, 0.3);
+      }
+      .service-row:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .service-num {
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        color: rgba(250, 250, 250, 0.2);
+        position: relative;
+        z-index: 1;
+      }
+      .service-row:hover .service-num {
+        color: #FF5722;
+      }
+      .service-body {
+        position: relative;
+        z-index: 1;
+      }
+      .service-name {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: clamp(22px, 3.5vw, 38px);
+        letter-spacing: -0.01em;
+        color: #fafafa;
+        line-height: 1.1;
+        margin-bottom: 8px;
+        transition: color 0.2s;
+      }
+      .service-row:hover .service-name {
+        color: #FF5722;
+      }
+      .service-desc {
+        font-size: 13px;
+        font-weight: 300;
+        color: rgba(250, 250, 250, 0.38);
+        max-width: 500px;
+        transition: color 0.3s;
+      }
+      .service-row:hover .service-desc {
+        color: rgba(250, 250, 250, 0.6);
+      }
+      .service-arrow {
+        font-size: 22px;
+        color: rgba(250, 250, 250, 0.15);
+        position: relative;
+        z-index: 1;
+        transform: rotate(-45deg);
+        transition:
+          color 0.2s,
+          transform 0.2s;
+      }
+      .service-row:hover .service-arrow {
+        color: #FF5722;
+        transform: rotate(0deg);
+      }
+
+      /* ── WORK ── */
+      #work {
+        padding: 80px 48px 120px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .work-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 56px;
+      }
+      .work-heading {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: clamp(44px, 7vw, 84px);
+        line-height: 1.03;
+        letter-spacing: -0.01em;
+      }
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .work-card {
+        aspect-ratio: 4/3;
+        background: #1a1a22;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        position: relative;
+        overflow: hidden;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+        cursor: none;
+      }
+      .work-card:hover {
+        border-color: rgba(255, 87, 34, 0.5);
+        z-index: 2;
+      }
+      .work-media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .work-card:hover .work-media {
+        transform: scale(1.06);
+      }
+      .work-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+        background: linear-gradient(
+          180deg,
+          transparent 35%,
+          rgba(10, 10, 14, 0.55) 70%,
+          rgba(10, 10, 14, 0.9) 100%
+        );
+        transition: background 0.3s;
+      }
+      .work-cat {
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #ff7043;
+        margin-bottom: 6px;
+      }
+      .work-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: clamp(20px, 2.4vw, 28px);
+        line-height: 1.1;
+        color: #fff;
+      }
+      .work-badge {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-family: "Space Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #fff;
+        background: rgba(255, 87, 34, 0.9);
+        padding: 6px 12px;
+        border-radius: 2px;
+      }
+
+      /* ── CTA ── */
+      #cta {
+        padding: 140px 48px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      .cta-ghost {
+        position: absolute;
+        font-family: "Playfair Display", serif;
+        font-size: clamp(80px, 16vw, 220px);
+        font-style: italic;
+        color: rgba(255, 87, 34, 0.04);
+        line-height: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        pointer-events: none;
+        letter-spacing: -0.02em;
+      }
+      .cta-label {
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #FF5722;
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-heading {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: clamp(56px, 10vw, 116px);
+        line-height: 1.02;
+        letter-spacing: -0.01em;
+        color: #fafafa;
+        margin-bottom: 48px;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-btns {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        flex-wrap: wrap;
+      }
+      .btn-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: transparent;
+        color: #fafafa;
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 15px 32px;
+        border: 1px solid rgba(250, 250, 250, 0.25);
+        cursor: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .btn-wa:hover {
+        border-color: #25d366;
+        color: #25d366;
+        background: rgba(37, 211, 102, 0.06);
+      }
+
+      /* ── CONTACT ── */
+      #contact {
+        padding: 80px 48px 120px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+      }
+      .contact-heading {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: clamp(44px, 6vw, 72px);
+        line-height: 1.03;
+        letter-spacing: -0.01em;
+        color: #fafafa;
+        margin-bottom: 12px;
+      }
+      .contact-sub {
+        font-size: 14px;
+        font-weight: 300;
+        color: rgba(250, 250, 250, 0.4);
+        margin-bottom: 48px;
+        line-height: 1.7;
+      }
+      .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        transition: border-color 0.2s;
+        cursor: none;
+      }
+      .contact-card:hover {
+        border-color: rgba(255, 87, 34, 0.3);
+      }
+      .contact-card:first-of-type {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .contact-card:hover .contact-icon {
+        border-color: #FF5722;
+        background: rgba(255, 87, 34, 0.1);
+      }
+      .contact-card-label {
+        font-family: "Space Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(250, 250, 250, 0.3);
+        margin-bottom: 2px;
+      }
+      .contact-card-val {
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(250, 250, 250, 0.75);
+        transition: color 0.2s;
+      }
+      .contact-card:hover .contact-card-val {
+        color: #fafafa;
+      }
+      /* FORM */
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+      .form-label {
+        display: block;
+        font-family: "Space Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(250, 250, 250, 0.3);
+        margin-bottom: 8px;
+      }
+      .form-input,
+      .form-select,
+      .form-textarea {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #fafafa;
+        padding: 13px 16px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+        -webkit-appearance: none;
+        border-radius: 0;
+      }
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        border-color: #FF5722;
+        background: rgba(255, 87, 34, 0.04);
+      }
+      .form-input::placeholder,
+      .form-textarea::placeholder {
+        color: rgba(250, 250, 250, 0.2);
+      }
+      .form-select option {
+        background: #1a1a22;
+        color: #fafafa;
+      }
+      .form-textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      .form-submit {
+        width: 100%;
+        padding: 17px 32px;
+        background: #FF5722;
+        color: #111118;
+        border: none;
+        cursor: none;
+        font-family: "Space Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 700;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .form-submit:hover {
+        background: #ff7043;
+      }
+      .form-submit.sent {
+        background: #1db954;
+        color: #111118;
+        cursor: none;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        padding: 32px 48px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .footer-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        letter-spacing: 0.05em;
+      }
+      .footer-logo span {
+        color: #FF5722;
+      }
+      .footer-copy {
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        color: rgba(250, 250, 250, 0.25);
+        text-transform: uppercase;
+      }
+      .footer-ig {
+        font-family: "Space Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        color: rgba(250, 250, 250, 0.35);
+        transition: color 0.2s;
+      }
+      .footer-ig:hover {
+        color: #FF5722;
+      }
+
+      /* ── REVEAL ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition:
+          opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-delay-1 {
+        transition-delay: 0.1s;
+      }
+      .reveal-delay-2 {
+        transition-delay: 0.2s;
+      }
+      .reveal-delay-3 {
+        transition-delay: 0.3s;
+      }
+      .reveal-delay-4 {
+        transition-delay: 0.4s;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        nav {
+          padding: 20px 24px;
+        }
+        #hero {
+          padding: 100px 24px 190px;
+        }
+        .hero-greeting {
+          font-size: clamp(44px, 12vw, 80px);
+        }
+        .hero-intro {
+          margin-bottom: 36px;
+        }
+        .hero-bottom {
+          left: 24px;
+          right: 24px;
+          bottom: 28px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+        }
+        .hero-socials {
+          gap: 20px;
+        }
+        #about {
+          grid-template-columns: 1fr;
+          padding: 80px 24px;
+          gap: 48px;
+        }
+        .about-photo-wrap {
+          max-width: 100%;
+          aspect-ratio: 3/2;
+        }
+        #services {
+          padding: 60px 24px 80px;
+        }
+        .services-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .service-row {
+          grid-template-columns: 36px 1fr auto;
+          gap: 16px;
+        }
+        #work {
+          padding: 60px 24px 80px;
+        }
+        .work-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        #cta {
+          padding: 100px 24px;
+        }
+        #contact {
+          grid-template-columns: 1fr;
+          padding: 60px 24px 80px;
+          gap: 48px;
+        }
+        footer {
+          padding: 24px;
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+      @media (max-width: 540px) {
+        .work-grid {
+          grid-template-columns: 1fr;
+        }
+        .work-overlay {
+          padding: 18px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .cta-btns {
+          flex-direction: column;
+          align-items: center;
+        }
+        .about-stats {
+          flex-direction: column;
+          gap: 24px;
+        }
+        .astat {
+          border-right: none;
+          padding-right: 0;
+          margin-right: 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          padding-bottom: 24px;
+        }
+        .astat:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        .ticker-inner {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- Grid overlay -->
+    <div class="grid-bg"></div>
+
+    <!-- ── NAV ── -->
+    <nav id="navbar">
+      <a href="#hero" class="nav-logo">DI<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Let's Work Together</a>
+      <button class="nav-mobile-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-close" id="menuClose">✕</button>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#work" class="mobile-link">Work</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- ── HERO ── -->
+    <section id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-greeting reveal">Hi ! I'm <em>Didarul.</em></h1>
+        <p class="hero-intro reveal reveal-delay-1">
+          I'm a Graphic Designer, Video Editor & Social Media Manager based in
+          Bangladesh.
+        </p>
+        <a href="#about" class="hero-more-btn reveal reveal-delay-2"
+          >More About Me</a
+        >
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-contact reveal reveal-delay-3">
+          <div class="hero-contact-label">Let's work together</div>
+          <a href="mailto:didarul.0990@gmail.com" class="hero-contact-email"
+            >didarul.0990@gmail.com</a
+          >
+          <div class="hero-contact-phone">+880 1909 539 399</div>
+        </div>
+        <div class="hero-socials reveal reveal-delay-3">
+          <a
+            href="https://wa.me/8801909539399"
+            target="_blank"
+            rel="noopener"
+            aria-label="WhatsApp"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+              />
+            </svg>
+          </a>
+          <a href="mailto:didarul.0990@gmail.com" aria-label="Email">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m2 6 10 7 10-7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="red-stripe"></div>
+    </section>
+
+    <!-- ── TICKER ── -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-inner" id="ticker">
+        <span class="ticker-item"
+          >Graphic Design <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Video Editing <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Social Media Management <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Canva Design <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Content Creation <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Brand Identity <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Reels & Shorts <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Graphic Design <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Video Editing <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Social Media Management <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Canva Design <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Content Creation <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Brand Identity <span class="ticker-dot"></span
+        ></span>
+        <span class="ticker-item"
+          >Reels & Shorts <span class="ticker-dot"></span
+        ></span>
+      </div>
+    </div>
+
+    <!-- ── ABOUT ── -->
+    <section id="about">
+      <div class="about-photo-wrap reveal">
+        <div class="about-photo-frame">
+          <div class="about-corner tl">PHOTO</div>
+          <div class="photo-placeholder-icon">◎</div>
+          <div class="photo-placeholder-text">Add your photo here</div>
+          <div class="about-corner br">MDI · 2026</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label reveal">About Me</div>
+        <h2 class="about-heading display reveal reveal-delay-1">
+          Not<br />taught.<br /><em>Built.</em>
+        </h2>
+        <p class="about-bio reveal reveal-delay-2">
+          I'm <strong>Md Didarul Islam</strong> — a graphic designer, video
+          editor, and social media manager based in Bangladesh. No agency
+          diploma. No shortcut. Just
+          <strong>3+ years of hands-on work</strong> for real brands, real
+          deadlines, real results. <br /><br />
+          Currently at <strong>Yera Connect</strong>, I bring the same detail
+          obsession to every frame, post, and pixel. If it ships under my name,
+          it's done right.
+        </p>
+        <div class="about-stats reveal reveal-delay-3">
+          <div class="astat">
+            <div class="astat-num">3+</div>
+            <div class="astat-label">Years Active</div>
+          </div>
+          <div class="astat">
+            <div class="astat-num">50+</div>
+            <div class="astat-label">Projects Done</div>
+          </div>
+          <div class="astat">
+            <div class="astat-num">5</div>
+            <div class="astat-label">Services</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICES ── -->
+    <section id="services">
+      <div class="services-header">
+        <h2 class="services-heading display reveal">What<br />I Do</h2>
+        <p class="services-sub reveal">
+          Full creative solutions — not task lists. Every service is end-to-end
+          and built to perform.
+        </p>
+      </div>
+
+      <div class="service-row reveal">
+        <span class="service-num mono">01</span>
+        <div class="service-body">
+          <div class="service-name display">Graphic Design</div>
+          <div class="service-desc">
+            Logos, banners, social visuals, and brand assets that look sharp and
+            feel intentional — built for the platform they'll live on.
+          </div>
+        </div>
+        <span class="service-arrow">↗</span>
+      </div>
+
+      <div class="service-row reveal reveal-delay-1">
+        <span class="service-num mono">02</span>
+        <div class="service-body">
+          <div class="service-name display">Social Media Management</div>
+          <div class="service-desc">
+            Strategy, content calendar, posting, and growth — handling the whole
+            pipeline so your brand stays consistent and active.
+          </div>
+        </div>
+        <span class="service-arrow">↗</span>
+      </div>
+
+      <div class="service-row reveal reveal-delay-2">
+        <span class="service-num mono">03</span>
+        <div class="service-body">
+          <div class="service-name display">Video Editing</div>
+          <div class="service-desc">
+            Reels, YouTube cuts, short-form content, and brand videos — edited
+            for retention, paced for impact, exported ready to post.
+          </div>
+        </div>
+        <span class="service-arrow">↗</span>
+      </div>
+
+      <div class="service-row reveal reveal-delay-3">
+        <span class="service-num mono">04</span>
+        <div class="service-body">
+          <div class="service-name display">Canva Design</div>
+          <div class="service-desc">
+            Pixel-perfect Canva templates, decks, and social kits — editable,
+            on-brand, and built to be reused without a designer every time.
+          </div>
+        </div>
+        <span class="service-arrow">↗</span>
+      </div>
+
+      <div class="service-row reveal reveal-delay-4">
+        <span class="service-num mono">05</span>
+        <div class="service-body">
+          <div class="service-name display">Content Creation</div>
+          <div class="service-desc">
+            Concepts, captions, and creative direction — content that's designed
+            to scroll-stop, not just fill a feed.
+          </div>
+        </div>
+        <span class="service-arrow">↗</span>
+      </div>
+    </section>
+
+    <!-- ── WORK ── -->
+    <section id="work">
+      <div class="work-header reveal">
+        <h2 class="work-heading display">Selected<br />Work</h2>
+      </div>
+      <div class="work-grid">
+        <article class="work-card reveal">
+          <video
+            class="work-media"
+            src="work1.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+          <span class="work-badge">▶ Video</span>
+          <div class="work-overlay">
+            <div class="work-cat">Video Editing</div>
+            <div class="work-title">Short-form Reel Edit</div>
+          </div>
+        </article>
+        <article class="work-card reveal reveal-delay-1">
+          <img
+            class="work-media"
+            src="work2.png"
+            alt="Graphic design project by Md Didarul Islam"
+            loading="lazy"
+          />
+          <div class="work-overlay">
+            <div class="work-cat">Graphic Design</div>
+            <div class="work-title">Social Media Design</div>
+          </div>
+        </article>
+        <article class="work-card reveal reveal-delay-2">
+          <img
+            class="work-media"
+            src="work3.png"
+            alt="Graphic design project by Md Didarul Islam"
+            loading="lazy"
+          />
+          <div class="work-overlay">
+            <div class="work-cat">Graphic Design</div>
+            <div class="work-title">Brand Visual</div>
+          </div>
+        </article>
+        <article class="work-card reveal reveal-delay-1">
+          <img
+            class="work-media"
+            src="work4.jpg"
+            alt="Graphic design project by Md Didarul Islam"
+            loading="lazy"
+          />
+          <div class="work-overlay">
+            <div class="work-cat">Graphic Design</div>
+            <div class="work-title">Poster Design</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section id="cta">
+      <div class="cta-ghost">Together</div>
+      <div class="cta-label reveal">Open for Projects</div>
+      <h2 class="cta-heading display reveal reveal-delay-1">
+        Let's Work<br />Together
+      </h2>
+      <div class="cta-btns reveal reveal-delay-2">
+        <a href="#contact" class="btn-primary">Start a Project →</a>
+        <a
+          href="https://wa.me/8801909539399"
+          target="_blank"
+          rel="noopener"
+          class="btn-wa"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            style="flex-shrink: 0"
+          >
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+            />
+          </svg>
+          WhatsApp Me
+        </a>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact">
+      <div>
+        <div class="section-label reveal">Contact</div>
+        <h2 class="contact-heading display reveal reveal-delay-1">
+          Get In<br />Touch
+        </h2>
+        <p class="contact-sub reveal reveal-delay-2">
+          Available for freelance projects, collaborations, and full-time remote
+          work.
+        </p>
+
+        <a href="mailto:didarul.0990@gmail.com" class="contact-card reveal">
+          <div class="contact-icon">✉</div>
+          <div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-val">didarul.0990@gmail.com</div>
+          </div>
+        </a>
+        <a
+          href="https://wa.me/8801909539399"
+          target="_blank"
+          rel="noopener"
+          class="contact-card reveal"
+        >
+          <div class="contact-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+              />
+            </svg>
+          </div>
+          <div>
+            <div class="contact-card-label">WhatsApp</div>
+            <div class="contact-card-val">+880 1909 539 399</div>
+          </div>
+        </a>
+        <div class="contact-card reveal" style="cursor: default">
+          <div class="contact-icon">◎</div>
+          <div>
+            <div class="contact-card-label">Location</div>
+            <div class="contact-card-val">Bangladesh · Remote Available</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div>
+              <label class="form-label" for="fname">Name</label>
+              <input
+                class="form-input"
+                type="text"
+                id="fname"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div>
+              <label class="form-label" for="femail">Email</label>
+              <input
+                class="form-input"
+                type="email"
+                id="femail"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label class="form-label" for="fservice">Service</label>
+              <select class="form-select" id="fservice">
+                <option value="">Select a service</option>
+                <option>Graphic Design</option>
+                <option>Social Media Management</option>
+                <option>Video Editing</option>
+                <option>Canva Design</option>
+                <option>Content Creation</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" for="fbudget">Budget</label>
+              <select class="form-select" id="fbudget">
+                <option value="">Select range</option>
+                <option>Under $100</option>
+                <option>$100 – $300</option>
+                <option>$300 – $500</option>
+                <option>$500+</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fmsg">Message</label>
+            <textarea
+              class="form-textarea"
+              id="fmsg"
+              placeholder="Tell me about your project..."
+              required
+            ></textarea>
+          </div>
+          <button class="form-submit" type="submit" id="submitBtn">
+            Send Message →
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <div class="footer-logo">DI<span>.</span></div>
+      <div class="footer-copy">
+        © 2026 Md Didarul Islam. All rights reserved.
+      </div>
+      <a href="mailto:didarul.0990@gmail.com" class="footer-ig"
+        >didarul.0990@gmail.com</a
+      >
+    </footer>
+
+    <script>
+      // ── CURSOR ──
+      const dot = document.getElementById("cursor-dot");
+      const ring = document.getElementById("cursor-ring");
+      let mx = 0,
+        my = 0,
+        rx = 0,
+        ry = 0;
+      window.addEventListener("mousemove", (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+      });
+      function animateCursor() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        dot.style.left = mx + "px";
+        dot.style.top = my + "px";
+        ring.style.left = rx + "px";
+        ring.style.top = ry + "px";
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+      document
+        .querySelectorAll(
+          "a, button, .service-row, .work-card, .contact-card",
+        )
+        .forEach((el) => {
+          el.addEventListener("mouseenter", () =>
+            document.body.classList.add("cursor-hover"),
+          );
+          el.addEventListener("mouseleave", () =>
+            document.body.classList.remove("cursor-hover"),
+          );
+        });
+
+      // ── NAV SCROLL ──
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 40);
+      });
+
+      // ── MOBILE MENU ──
+      document.getElementById("menuToggle").addEventListener("click", () => {
+        document.getElementById("mobileMenu").classList.add("open");
+      });
+      document.getElementById("menuClose").addEventListener("click", () => {
+        document.getElementById("mobileMenu").classList.remove("open");
+      });
+      document.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () =>
+          document.getElementById("mobileMenu").classList.remove("open"),
+        );
+      });
+
+      // ── SCROLL REVEALS ──
+      const reveals = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              revealObserver.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      );
+      reveals.forEach((el) => revealObserver.observe(el));
+
+      // ── CONTACT FORM ──
+      function handleSubmit(e) {
+        e.preventDefault();
+        const btn = document.getElementById("submitBtn");
+        btn.textContent = "Sent! I'll be in touch soon ✓";
+        btn.classList.add("sent");
+        btn.disabled = true;
+      }
+
+      // ── TICKER DUPLICATE CHECK ──
+      (function () {
+        const inner = document.getElementById("ticker");
+        if (inner) {
+          const clone = inner.innerHTML;
+          inner.innerHTML = clone + clone;
+        }
+      })();
+    </script>
+  </body>
+</html>
